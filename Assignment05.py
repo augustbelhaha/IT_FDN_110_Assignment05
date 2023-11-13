@@ -28,7 +28,7 @@ menu_choice: str  # Hold the choice made by the user.
 student_data: dict = {}  # A dictionary of student data
 students: list = []  # A table of student data
 
-# Import plugins
+# Import libraries
 import json
 
 # On start, read the file's data as a two-dimensional list table (a list of dictionary rows)

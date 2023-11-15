@@ -4,7 +4,11 @@
 # Change Log: (Who, When, What)
 #   RRoot, 1/1/2030, Created Script
 #   ABelhumeur, 11/12/2023, Began Assignment05
+#   ABelhumeur, 11/13/2023, Small edits / polish pass
 # ------------------------------------------------------------------------------------------ #
+
+# Import libraries
+import json
 
 # Define the Data Constants
 FILE_NAME: str = "Enrollments.json"
@@ -22,14 +26,10 @@ MENU: str = '''
 student_first_name: str = ''  # Holds the first name of a student entered by the user.
 student_last_name: str = ''  # Holds the last name of a student entered by the user.
 course_name: str = ''  # Holds the name of a course entered by the user.
-csv_data: str = ''  # Holds combined string data separated by a comma.
 file = None  # Holds a reference to an opened file.
 menu_choice: str  # Hold the choice made by the user.
 student_data: dict = {}  # A dictionary of student data
 students: list = []  # A table of student data
-
-# Import libraries
-import json
 
 # On start, read the file's data as a two-dimensional list table (a list of dictionary rows)
 try:
@@ -40,9 +40,15 @@ try:
     file.close()
 except FileNotFoundError as e:
     print("JSON file not found.")
+    print('---Technical Information---')
+    print(e, e.__doc__, type(e), sep='\n')
     print("Creating file since it doesn't exist.")
     file = open(FILE_NAME, 'w')
     json.dump(students, file)
+except Exception as e:
+    print("There was an error reading from the document.")
+    print('---Technical Information---')
+    print(e, e.__doc__, type(e), sep='\n')
 finally:
     if not file.closed:
         file.close()
@@ -70,6 +76,8 @@ while (True):
             print(f"You have registered {student_first_name} {student_last_name} for {course_name}.")
         except ValueError as e:
             print(e)
+            print('---Technical Information---')
+            print(e.__doc__, type(e), sep='\n')
             print("User entered invalid information. Showing menu options again...")
         continue
 
@@ -86,13 +94,13 @@ while (True):
     elif menu_choice == "3":
         try:
             file = open(FILE_NAME, "w")
-            json.dump(students, file)
+            json.dump(students, file, indent=1)
+            print("All entries have been saved to the file 'Enrollments.json'.")
             file.close()
         except Exception as e:
             print("There was an error writing to the document.")
-            print(e, e.__doc__)
-        else:
-            print("All entries have been saved to the file 'Enrollments.json'.")
+            print('---Technical Information---')
+            print(e, e.__doc__, type(e), sep='\n')
         finally:
             if not file.closed:
                 file.close()

@@ -1,1 +1,22 @@
-[{"first_name": "August", "last_name": "Belhumeur", "course_name": "Python 101"}, {"first_name": "Alba", "last_name": "Belhumeur", "course_name": "Home Economics 101"}, {"first_name": "Kristen", "last_name": "Paul", "course_name": "Data Analytics 200"}, {"first_name": "Adora", "last_name": "Catra", "course_name": "Betrayal 101"}, {"first_name": "Smokey", "last_name": "Bear", "course_name": "Fire Safety 101"}]
+[
+ {
+  "first_name": "August",
+  "last_name": "Belhumeur",
+  "course_name": "Python 101"
+ },
+ {
+  "first_name": "Adora",
+  "last_name": "Catra",
+  "course_name": "Betrayal 101"
+ },
+ {
+  "first_name": "Zelda",
+  "last_name": "Link",
+  "course_name": "Climbing 300"
+ },
+ {
+  "first_name": "Florence",
+  "last_name": "Hayes",
+  "course_name": "Adv. 3D Modeling"
+ }
+]
